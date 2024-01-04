@@ -22,6 +22,7 @@ STATUS_CHOICES = (
 
 
 class Blog(models.Model):
+    objects = None
     title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=150, unique=True, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
