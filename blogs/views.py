@@ -31,4 +31,4 @@ def search(request):
         'blogs': blogs,
         'keyword': keyword,
     }
-    return render(request, 'search.html')
+    return render(request, 'search.html', context)
