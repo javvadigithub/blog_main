@@ -13,16 +13,16 @@
       {% endif %}
     {% endfor %}
 
-<p class="text-uppercase text-primary" style="letter-spacing": 2px;"> Posts From {{category}} Pages</p>
+<p class="text-uppercase text-info" style="letter-spacing": 2px;"> Posts From {{category}} Pages</p>
   <div class="row mb-2">
   {% if posts %}
   {% for post in posts %}
     <div class="col-md-6">
       <div class="card border-0" >
         <div class="card-body">
-          <h3><a href="{% url 'blogs' post.slug %}">{{ post.title }}</h3>
+          <h3><a href="{% url 'blogs' post.slug %}" class="text-dark">{{ post.title }}</h3>
           <small class="mb-1 text-muted">{{ post.created_at | timesince}}  ago | {{ post.author }}</small>
-          <p class="card-text">{{ post.short_description | truncatewords:25 }}</p>
+          <p class="card-text" >{{ post.short_description | truncatewords:25 }}</p>
         </div>
       {% endfor %}
       {% else %}
