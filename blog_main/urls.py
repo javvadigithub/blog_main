@@ -20,6 +20,9 @@ from . import views
 from django.conf.urls.static import static
 from django.conf import settings
 from blogs import views as BlogsView
+from django_summernote import urls as summernote_urls
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,6 +38,11 @@ urlpatterns = [
     #Dashboards
     path('dashboard/', include('dashboards.urls')),
 
+    #social accounts
+    path('socailaccounts/', include('allauth.urls')),
+
     #CKEditor
-    path('ckeditor/', include('ckeditor_uploader.urls')),
+    # path('ckeditor/', include('ckeditor_uploader.urls')),
+    # path("ckeditor5/", include('django_ckeditor_5.urls'), name="ck_editor_5_upload_file"),
+    path('summernote/', include(summernote_urls)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

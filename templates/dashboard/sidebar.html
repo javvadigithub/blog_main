@@ -1,13 +1,20 @@
     <!-- Left sidebar Content-->
     <div class="col-md-3">
         <div class="nav flex-column nav-pills bg-light" aria-orientation="vertical">
+            {% if perms.auth.view_user %}
             <a href="{% url 'dashboard' %}" class="nav-link text-dark {% if '/dashboard/' == request.path %} bg-info{% endif %}">Dashboard</a>
+            {% endif %}
             {% if perms.auth.view_user %}
             <a href="{% url 'users' %}" class="nav-link text-dark {% if '/users/' in request.path %} bg-info{% endif %}">Users</a>
             {% endif %}
+            {% if perms.auth.view_user %}
             <a href="{% url 'categories' %}" class="nav-link text-dark {% if '/categories/' in request.path %}bg-info{% endif %}">Categories</a>
+            {% endif %}
+            {% if perms.auth.view_user %}
             <a href="{% url 'posts' %}"class="nav-link text-dark {% if '/posts/' in request.path %}bg-info{% endif %}">Posts</a>
-
-            <a href="" class="nav-link text-dark ">Logout</a>
-
+            {% endif %}
+            {% if perms.auth.view_user %}
+            <a href="{% url 'logout' %}" class="nav-link text-dark {% if '/logout/' in request.path %}bg-info{% endif %}">Logout</a>
+            {% endif %}
+            
         </div>
